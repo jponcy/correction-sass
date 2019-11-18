@@ -1,0 +1,16 @@
+@import "common";
+@import "menu";
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  &>* {
+    width: 200px;
+    @extend %border;
+    padding: 5px;
+    margin: 10px;
+    flex-grow: 1;
+  }
+}

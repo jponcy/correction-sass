@@ -1,0 +1,36 @@
+@import "vars";
+
+%color {
+  color: $primary;
+
+  font: {
+    size: $font-size;
+    family: $font-family;
+  }
+}
+
+%img {
+  width: #{$img-width}px;
+  height: #{$img-height}px;
+}
+
+h1 {
+  @extend %color;
+}
+
+p {
+  @extend %color;
+}
+
+.images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+@for $i from 1 through 3 {
+  #img-#{$i} {
+    @extend %img;
+    background-image: url('https://fakeimg.pl/#{$img-width}x#{$img-height}/?text=img%20n°#{$i}');
+  }
+}

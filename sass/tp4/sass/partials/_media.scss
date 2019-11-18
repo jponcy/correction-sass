@@ -1,0 +1,7 @@
+@import 'vars';
+
+@mixin small() {
+  @media (max-width: $img-min-size + 10) {
+    @content;
+  }
+}

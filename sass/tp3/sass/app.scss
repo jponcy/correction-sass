@@ -1,20 +1,24 @@
 @import "vars";
 @import "color";
 
-h1 {
-  // color: $primary;
-  // background-color: lighten($primary, 30);
-  @include colorize($primary);
-}
+// h1 {
+//   @include colorize($primary);
+// }
 
-h2 {
-  // color: darken($primary, 30);
-  // background-color: $primary;
-  @include colorize($primary, 30);
-}
+// h2 {
+//   @include colorize($primary, 30);
+// }
 
-h3 {
-  // color: darken($color: $primary, $amount: 50);
-  // background-color: darken($color: $primary, $amount: 30);
-  @include colorize($primary, 50);
+// h3 {
+//   @include colorize($primary, 50);
+// }
+
+// Question 2
+@for $i from 0 through 2 {
+  h#{$i + 1} {
+    $amout: null!default;
+    @if $i!=0 { $amout: $i * 20 + 10; }
+
+    @include colorize($primary, $amout);
+  }
 }

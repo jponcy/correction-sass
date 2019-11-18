@@ -1,0 +1,23 @@
+@function get-color($color, $amount) {
+  @if lightness($color) == lightness(darken($color, $amount)) {
+    @return lighten($color, $amount);
+  } @else {
+    @return darken($color, $amount);
+  }
+}
+
+@mixin colorize($originColor, $amount: null) {
+  $color: null;
+
+  @if $amount==null {
+    $color: $originColor;
+    $amount: 30;
+  } @else {
+    $color: get-color($originColor, $amount);
+  }
+
+  $bg: get-color($color, $amount);
+
+  color: $color;
+  background-color: $bg;
+}

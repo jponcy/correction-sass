@@ -1,0 +1,17 @@
+// out: ../css/cards.css, sourceMap: false
+
+@import '_common';
+@import '_menu';
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  &>*:extend(.border) {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    flex-grow: 1;
+  }
+}

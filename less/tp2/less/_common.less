@@ -1,0 +1,14 @@
+// out: false
+
+.radius(@size) {
+  -webkit-border-radius: @size;
+  -moz-border-radius: @size;
+  -ms-border-radius: @size;
+  -o-border-radius: @size;
+  border-radius: @size;
+}
+
+.border {
+  .radius(15px);
+  border: 1px solid black;
+}

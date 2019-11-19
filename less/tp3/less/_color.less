@@ -1,0 +1,26 @@
+// out: false
+
+.get-color(@color, @amount)
+    when (lightness(@color) = lightness(darken(@color, @amount))) {
+  @result: lighten(@color, @amount);
+}
+
+.get-color(@color, @amount)
+    when not (lightness(@color) = lightness(darken(@color, @amount))) {
+  @result: darken(@color, @amount);
+}
+
+.colorize-process(@color, @amount) {
+  @bg: .get-color(@color, @amount)[];
+
+  color: @color;
+  background-color: @bg;
+}
+
+.colorize(@origin-color, @amount: null) when (@amount = null) {
+  .colorize-process(@origin-color, 30);
+}
+
+.colorize(@origin-color, @amount: null) when not (@amount = null) {
+  .colorize-process(.get-color(@origin-color, @amount)[], @amount);
+}

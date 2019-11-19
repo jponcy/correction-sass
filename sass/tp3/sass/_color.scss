@@ -1,3 +1,8 @@
+/// Détermine une couleur différente.
+/// Donne une couleur assombrie dérivée de $color, sauf si la couleur de base est déjà très sombre.
+/// Dans ce cas là, on l'eclaircie.
+/// @param {Color} $color La couleur de base
+/// @param {number} $amount Le taux d'assombrissement/eclaircicement
 @function get-color($color, $amount) {
   @if lightness($color) == lightness(darken($color, $amount)) {
     @return lighten($color, $amount);

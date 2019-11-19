@@ -1,0 +1,45 @@
+// out: ../css/app.css, sourceMap: false
+
+@import '_vars';
+@import '_color';
+
+// **********
+// Question 1
+// ----------
+
+// h1 {
+//   .colorize(@primary);
+// }
+
+// h2 {
+//   .colorize(@primary, 30);
+// }
+
+// h3 {
+//   .colorize(@primary, 50);
+// }
+
+
+// **********
+// Question 2
+// ----------
+
+.loop(2);
+
+.loop-process(@i) when (@i > 0) {
+  .colorize(@primary, @i * 20 + 10);
+}
+
+.loop-process(@i) when (@i = 0) {
+  .colorize(@primary);
+}
+
+.loop(@i) when (@i >= 0) {
+  @level: @i + 1;
+
+  h@{level} {
+    .loop-process(@i);
+  }
+
+  .loop(@i - 1);
+}

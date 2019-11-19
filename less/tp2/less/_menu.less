@@ -1,0 +1,23 @@
+// out: false
+
+@import '_common';
+
+nav {
+  ul {
+    list-style: none;
+
+    li:extend(.border) {
+      padding: 5px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:visited {
+        color: inherit;
+      }
+    }
+  }
+}

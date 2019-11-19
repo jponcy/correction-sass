@@ -1,0 +1,9 @@
+// out: false
+
+@import '_vars';
+
+.small(@rules) {
+  @media (max-width: @img-min-size + 10) {
+    @rules();
+  }
+}
